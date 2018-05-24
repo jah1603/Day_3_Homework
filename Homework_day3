@@ -8,8 +8,10 @@ stops = [ "Croy", "Cumbernauld", "Falkirk High", "Linlithgow", "Livingston", "Ha
 
 #1. Add `"Edinburgh Waverley"` to the end of the array
   p stops << "Edinburgh Waverley"
+  stops.push("Edinburgh Waverley")
 #2. Add `"Glasgow Queen St"` to the start of the array
   p stops.unshift "Glasgow Queen St"
+  stops.insert(0, "Glasgow Queen Street")
 #3. Add `"Polmont"` at the appropriate point (between `"Falkirk High"` and `"Linlithgow"`)
   p stops.insert(4, "Polmont")
 #4. Work out the index position of `"Linlithgow"`
@@ -19,12 +21,18 @@ stops = [ "Croy", "Cumbernauld", "Falkirk High", "Linlithgow", "Livingston", "Ha
 #6. Delete `"Cumbernauld"` from the array by index
   p stops.delete_at(2)
 #7. How many stops there are in the array?
-  p stops.count
+  p stops.count()
+  p stops.length()
+  p stops.size()
 #8. How many ways can we return `"Falkirk High"` from the array?
   p stops[2]
   p stops.at(2)
+  p stops.fetch(2)
+  p stops[-5]
+  p stops.values_at(2)
 #9. Reverse the positions of the stops in the array
-  p stops.reverse
+  p stops.reverse #returns new array, leaving original unchanged
+  p stops.reverse! #changes original array for good
 #10. Print out all the stops using a for loop
   for stop in stops
     p stop
@@ -99,9 +107,10 @@ users = {
 #3. Get the array of Erik's lottery numbers
   p users["Erik"][:lottery_numbers]
 #4. Get the type of Avril's pet Monty
-
+  p users["Avril"][:pets].class() #Returns class (array in this case)
+  p users["Avril"][:pets][0][:species]
 #5. Get the smallest of Erik's lottery numbers
-  p users["Erik"][:lottery_numbers].min
+  p users["Erik"][:lottery_numbers].min()
 #6. Return an array of Avril's lottery numbers that are even
 
 #7. Erik is one lottery number short! Add the number `7` to be included in his lottery numbers
